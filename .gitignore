@@ -3,3 +3,9 @@
 ################################################################################
 
 /WebApp1/bin/Debug/netcoreapp2.2
+/WebApp1/obj
+/WebApi1/bin/Debug/netcoreapp2.2
+/WebApi1/obj
+/LDNC.Model/bin/Debug/netcoreapp2.2
+/.vs
+/LDNC.Model/obj
