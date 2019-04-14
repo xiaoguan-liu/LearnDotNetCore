@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebApp1.Models;
 
 namespace WebApp1
 {
@@ -17,6 +18,9 @@ namespace WebApp1
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //Configuration.Bind("Id", "123");
+            //Configuration.Bind("Name", "456");
+           // Configuration.AddInMemoryCollection();
         }
 
         public IConfiguration Configuration { get; }
@@ -24,15 +28,19 @@ namespace WebApp1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MyOptions>(Configuration.GetSection("myoptions"));
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+        
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //services.AddTransient()
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +62,11 @@ namespace WebApp1
             app.UseCookiePolicy();
 
             app.UseMvc();
+
+            //Á·Ï°
+            app.Run(async context => {
+                await context.Response.WriteAsync("Hello world!");
+            });
         }
     }
 }

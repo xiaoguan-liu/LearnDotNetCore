@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace WebApp1
+namespace WebAppMvc1
 {
     public class Program
     {
@@ -18,22 +18,7 @@ namespace WebApp1
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args).ConfigureAppConfiguration(
-                (hostingContext, config) =>
-                {
-                    config.AddInMemoryCollection(
-                        arrayDict
-                        );
-                })
+            WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
-
-
-        public static Dictionary<string, string> arrayDict = new Dictionary<string, string>
-        {
-            {"myoptions:id", "123"},
-            {"myoptions:name", "456"}
-        };
-
-
     }
 }

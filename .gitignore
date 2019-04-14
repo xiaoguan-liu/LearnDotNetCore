@@ -9,3 +9,7 @@
 /LDNC.Model/bin/Debug/netcoreapp2.2
 /.vs
 /LDNC.Model/obj
+/ConsoleApp1/bin/Debug
+/ConsoleApp1/obj
+/WebAppMvc1/bin
+/WebAppMvc1/obj
